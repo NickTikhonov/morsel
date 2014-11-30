@@ -39,10 +39,10 @@ public class StratifiedSampler {
         for(int i = 0; i < samples.size(); i++){
 		    System.out.print(samples.get(i).toString());
 		    if(i + 1 < samples.size())
-		        System.out.println(",");
+		        System.out.print(", ");
         }
 
-		System.out.println("]}");
+		System.out.println(" ]}");
 	}
 
 }

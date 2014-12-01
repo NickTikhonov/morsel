@@ -8,17 +8,17 @@ import com.nicktikhonov.morsel.stratified_sampler.Vector;
 public class StratifiedSampler {
 
 	public static void main(String[] args){
-        int x1 = Integer.parseInt(args[0]);
-        int y1 = Integer.parseInt(args[1]);
+        double x1 = Double.parseDouble(args[0]);
+        double y1 = Double.parseDouble(args[1]);
 
-        int x2 = Integer.parseInt(args[2]);
-        int y2 = Integer.parseInt(args[3]);
+        double x2 = Double.parseDouble(args[2]);
+        double y2 = Double.parseDouble(args[3]);
 
-        int x3 = Integer.parseInt(args[4]);
-        int y3 = Integer.parseInt(args[5]);
+        double x3 = Double.parseDouble(args[4]);
+        double y3 = Double.parseDouble(args[5]);
 
-        int x4 = Integer.parseInt(args[6]);
-        int y4 = Integer.parseInt(args[7]);
+        double x4 = Double.parseDouble(args[6]);
+        double y4 = Double.parseDouble(args[7]);
 
         int numDivisions = Integer.parseInt(args[8]);
         int numSamples = Integer.parseInt(args[9]);
@@ -34,7 +34,7 @@ public class StratifiedSampler {
 
 		ArrayList<Vector> samples = demo.getSamples();
 
-        System.out.println("{ samples: [");
+        System.out.print("{ samples: [");
 
         for(int i = 0; i < samples.size(); i++){
 		    System.out.print(samples.get(i).toString());

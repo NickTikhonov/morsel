@@ -1,7 +1,13 @@
 morsel
 ======
+Morsel is a Python & Java library that generates sampling strategies for parameterised 2D space. This library currently supports several methods of sampling quadralateral shapes defined by x and y coordinates, including:
 
-Stratified sampling library for Python and Java. Allows for sampling of fields using several different techniques. 
+- random sampling: generating N random points inside a quad
+- stratified systematic sampling: generating an N by N grid inside the quad and returning the centerpoint of each strum
+- stratified random sampling: generating an N by N grid inside the quad and selecting M random points inside each stratum
+
+In addition to generating samples, Morsel contains tools that can be used to generate an efficient path that visits every sample point. 
+
 ![Stratified random sampling and shortest path](http://i.imgur.com/uDPYIXz.png)
 
 ### Python example

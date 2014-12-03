@@ -96,7 +96,7 @@ class Triangle:
 
 
 class Quad:
-	def __init__(self, v1, v2, v3, v4, num_samples):
+	def __init__(self, v1, v2, v3, v4, num_samples, plt = None):
 		self.sample_points = []
 
 		self.v1 = v1
@@ -105,6 +105,12 @@ class Quad:
 		self.v4 = v4
 
 		self.generate_samples(num_samples)
+
+		if plt:
+			plt.plot([v1.x, v2.x] , [v1.y, v2.y], 'g-', lw=1)
+			plt.plot([v2.x, v3.x] , [v2.y, v3.y], 'g-', lw=1)
+			plt.plot([v3.x, v4.x] , [v3.y, v4.y], 'g-', lw=1)
+			plt.plot([v4.x, v1.x] , [v4.y, v1.y], 'g-', lw=1)
 
 	def generate_samples(self, num_samples):
 		self.sample_points = []

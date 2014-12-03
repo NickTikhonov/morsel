@@ -10,7 +10,7 @@ class Field:
 		self.v3 = v3
 		self.v4 = v4
 
-	def generate_rects(self, length_divisions, num_samples):
+	def generate_rects(self, length_divisions, num_samples, plt = None):
 		self.sub_fields = []
 
 		horiz1 = Vector.sub(self.v2, self.v1)
@@ -34,14 +34,14 @@ class Field:
 
 		for x in range(length_divisions):
 			for y in range(length_divisions):
-				self.sub_fields.append(Quad(points[x][y], points[x + 1][y], points[x + 1][y + 1], points[x][y + 1], num_samples))
+				self.sub_fields.append(Quad(points[x][y], points[x + 1][y], points[x + 1][y + 1], points[x][y + 1], num_samples, plt = plt))
 
 	#	Returns a list of Vector objects containing samples generated in a stratified, staggered manner.
 	#	length_divisions -> When set to N, N * N rectangles are created by dividing the field equally into a grid
 	#	num_samples -> the number of random samples to be generated from each rectangle
 	#	Total number of samples returned -> length_division^2 * num_samples
-	def get_stratified_random_samples(self, length_divisions, num_samples):
-		self.generate_rects(length_divisions, num_samples)
+	def get_stratified_random_samples(self, length_divisions, num_samples, plt = None):
+		self.generate_rects(length_divisions, num_samples, plt)
 
 		samples = []
 		for sub_field in self.sub_fields:

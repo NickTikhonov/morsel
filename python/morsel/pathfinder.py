@@ -73,5 +73,36 @@ class Pathfinder:
 
 		ends = map(list, itertools.permutations(unvisited))
 		best = Pathfinder.shortest([tour[0], tour[-1]] + end for end in ends)
+
 		return tour + best[2:]
+
+	@staticmethod
+	def random_swap(path_in):
+		path = []
+		path.extend(path_in)
+
+		rand1 = random.randint(0, len(path) - 1)
+		rand2 = random.randint(0, len(path) - 1)
+
+		path[rand1], path[rand2] = path[rand2], path[rand1]
+
+		return path
+
+	@staticmethod
+	def improve_tour(path, num_fails = None):
+		if num_fails is None: num_fails = len(path) * 4
+		path_length = Pathfinder.length(path)
+
+		while num_fails > 0:
+			trial = Pathfinder.random_swap(path)
+			trial_length = Pathfinder.length(trial)
+
+			if trial_length < path_length:
+				print("Path improved! ", trial_length, " < ", path_length)
+				path = trial
+				path_length = trial_length
+			else:
+				num_fails -= 1
+
+		return path
 

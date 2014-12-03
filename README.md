@@ -2,8 +2,7 @@ morsel
 ======
 
 Stratified sampling library for Python and Java. Allows for sampling of fields using several different techniques. 
-
-![Use within an Android application](http://i.imgur.com/ls1rRtb.png)
+![Stratified random sampling and shortest path](http://i.imgur.com/uDPYIXz.png)
 
 ### Python example
 ```python
@@ -39,3 +38,8 @@ ArrayList<Vector> samples = demo.getSamples();
 - [X] shortest path algorithm to allow for efficient sampling of generated points
 - [ ] RESTful api wrapper for improved integration
 - [X] python support
+
+### Example application
+Stratified soil sampling using an android application:
+
+![Use within an Android application](http://i.imgur.com/ls1rRtb.png)

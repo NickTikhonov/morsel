@@ -14,6 +14,18 @@ class Vector:
 		self.x += other.x
 		self.y += other.y
 
+	def __eq__(self, other):
+		return other.x == self.x and other.y == self.y
+
+	def __hash__(self):
+		return hash("{} {}".format(self.x, self.y))
+
+	def __str__(self):
+		return self.get_json_string()
+
+	def __repr__(self):
+		return "Vector(x={}, y={})".format(self.x, self.y)
+
 	@staticmethod
 	def sum(s1, s2):
 		return Vector(s1.x + s2.x, s1.y + s2.y)
@@ -33,6 +45,10 @@ class Vector:
 	@staticmethod
 	def scale(vec, length):
 		return Vector.mult_const(vec, length/vec.get_length())
+
+	@staticmethod
+	def distance(v1, v2):
+		return Vector.sub(v2, v1).get_length()
 
 	def get_json_string(self):
 		return "{ x: %s, y: %s }" % (self.x, self.y) 

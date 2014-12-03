@@ -36,6 +36,6 @@ ArrayList<Vector> samples = demo.getSamples();
 ### Planned features
 
 - [ ] stratified sampling of irregular shapes - Voronoi/Decomposition
-- [ ] shortest path algorithm to allow for efficient sampling of generated points
+- [X] shortest path algorithm to allow for efficient sampling of generated points
 - [ ] RESTful api wrapper for improved integration
 - [X] python support

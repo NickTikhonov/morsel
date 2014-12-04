@@ -2,8 +2,21 @@ from entities import Vector
 import itertools
 import random
 
-class Pathfinder:
+class Path:
+	"""
+	Abstracts over finding the shortest path between N Vector objects
+	
+	'complexity' - defines how much to improve the tour once it has 
+		been calculated using a greedy algorithm	
+	"""
 
+	def __init__(self, samples, start=None, complexity=0):
+		self.samples = samples
+		greedy_tour = Pathfinder.slow_greedy_path(samples, start)
+		self.tour = Pathfinder.improve_tour(greedy_tour, num_fails = len(greedy_tour) * 4)
+		self.length = Pathfinder.length(self.tour)
+
+class Pathfinder:
 	@staticmethod
 	def greedy_ts_path(vec_list):
 		graph = dict()

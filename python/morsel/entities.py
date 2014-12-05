@@ -7,7 +7,11 @@ class Vector:
 		self.x = float(x)
 		self.y = float(y)
 
+	#Depreciated - use len(vec) instead
 	def get_length(self):
+		return math.sqrt((self.x * self.x) + (self.y * self.y))
+
+	def __len__(self):
 		return math.sqrt((self.x * self.x) + (self.y * self.y))
 
 	def add(self, other):
@@ -26,17 +30,33 @@ class Vector:
 	def __repr__(self):
 		return "Vector(x={}, y={})".format(self.x, self.y)
 
+	#depreciated method - use vec1 + vec2
 	@staticmethod
 	def sum(s1, s2):
 		return Vector(s1.x + s2.x, s1.y + s2.y)
 
+	def __add__(self, other):
+		if type(other) is not Vector:
+			raise TypeError('unsupported operand type(s) for +')
+		return Vector(self.x + other.x, self.y + other.y)
+
+	#depreciated method - use vec1 - vec2
 	@staticmethod
 	def sub(s1, s2):
 		return Vector(s1.x - s2.x, s1.y - s2.y)
 
+	def __sub__(self, other):
+		if type(other) is not Vector:
+			raise TypeError('unsupported operand type(s) for -')
+		return Vector(self.x - other.x, self.y - other.y)		
+
+	#depreciated method - use -vec instead
 	@staticmethod
 	def inverse(vec):
 		return Vector(-vec.x, -vec.y)
+
+	def __neg__(self):
+		return Vector(-self.x, -self.y)
 
 	@staticmethod
 	def mult_const(vec, length):
